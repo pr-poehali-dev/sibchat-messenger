@@ -19,6 +19,16 @@ export default {
 		},
 		extend: {
 			colors: {
+				// SibCHAT Theme Colors
+				arctic: '#87CEEB',
+				taiga: '#2F4F2F', 
+				snow: '#FFFFFF',
+				amber: '#FF8C00',
+				aurora: {
+					blue: '#4169E1',
+					green: '#32CD32',
+					purple: '#9370DB'
+				},
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
@@ -88,7 +98,14 @@ export default {
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-in': 'fadeIn 0.3s ease-out',
+				'bear-tracks': 'bearTracks 0.5s ease-out',
+				// SibCHAT Animations
+				'fade-in': 'fadeIn 0.3s ease-out',
+				'slide-up': 'slideUp 0.2s ease-out',
+				'bear-tracks': 'bearTracks 0.5s ease-out',
+				'aurora-glow': 'auroraGlow 2s ease-in-out infinite'
 			}
 		}
 	},
