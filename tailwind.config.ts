@@ -19,16 +19,25 @@ export default {
 		},
 		extend: {
 			colors: {
-				// SibCHAT Theme Colors
-				arctic: '#87CEEB',
-				taiga: '#2F4F2F', 
-				snow: '#FFFFFF',
-				amber: '#FF8C00',
+				// Сибирская цветовая гамма
+				snow: '#FFFFFF', // Снег, чистота
+				glacier: '#F0F8FF', // Ледниковый белый
+				river: '#20B2AA', // Реки и озёра (бирюзовый)  
+				lake: '#4682B4', // Байкал (стальной голубой)
+				taiga: '#1B4332', // Тайга (темно-зеленый)
+				forest: '#2D5A3D', // Лес (зеленый)
+				amber: '#DAA520', // Янтарь (золотисто-оранжевый)
+				sunset: '#FF6B35', // Сибирский закат (оранжевый)
 				aurora: {
-					blue: '#4169E1',
-					green: '#32CD32',
-					purple: '#9370DB'
+					blue: '#00BFFF', // Северное сияние синий
+					green: '#ADFF2F', // Северное сияние зеленый
+					purple: '#DA70D6', // Северное сияние фиолетовый
+					gold: '#FFD700' // Северное сияние золотой
 				},
+				// Сибирские звери
+				bear: '#654321', // Медведь (коричневый)
+				wolf: '#708090', // Волк (серый)
+				fox: '#CD853F', // Лиса (песочный)
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
@@ -80,20 +89,34 @@ export default {
 			},
 			keyframes: {
 				'accordion-down': {
-					from: {
-						height: '0'
-					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
-					}
+					from: { height: '0' },
+					to: { height: 'var(--radix-accordion-content-height)' }
 				},
 				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
-					},
-					to: {
-						height: '0'
-					}
+					from: { height: 'var(--radix-accordion-content-height)' },
+					to: { height: '0' }
+				},
+				// Сибирские анимации
+				'fadeIn': {
+					'0%': { opacity: '0', transform: 'translateY(10px)' },
+					'100%': { opacity: '1', transform: 'translateY(0)' }
+				},
+				'bearTracks': {
+					'0%': { transform: 'scale(0.9) rotate(-1deg)' },
+					'50%': { transform: 'scale(1.05) rotate(1deg)' },
+					'100%': { transform: 'scale(1) rotate(0deg)' }
+				},
+				'auroraGlow': {
+					'0%, 100%': { opacity: '0.5', filter: 'hue-rotate(0deg)' },
+					'50%': { opacity: '1', filter: 'hue-rotate(90deg)' }
+				},
+				'snowfall': {
+					'0%': { transform: 'translateY(-100vh) rotate(0deg)' },
+					'100%': { transform: 'translateY(100vh) rotate(360deg)' }
+				},
+				'icecrack': {
+					'0%': { transform: 'scaleX(0)' },
+					'100%': { transform: 'scaleX(1)' }
 				}
 			},
 			animation: {
@@ -101,11 +124,9 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fadeIn 0.3s ease-out',
 				'bear-tracks': 'bearTracks 0.5s ease-out',
-				// SibCHAT Animations
-				'fade-in': 'fadeIn 0.3s ease-out',
-				'slide-up': 'slideUp 0.2s ease-out',
-				'bear-tracks': 'bearTracks 0.5s ease-out',
-				'aurora-glow': 'auroraGlow 2s ease-in-out infinite'
+				'aurora-glow': 'auroraGlow 3s ease-in-out infinite',
+				'snowfall': 'snowfall 10s linear infinite',
+				'ice-crack': 'icecrack 0.3s ease-out'
 			}
 		}
 	},
