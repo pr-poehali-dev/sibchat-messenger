@@ -19,25 +19,22 @@ export default {
 		},
 		extend: {
 			colors: {
-				// Сибирская цветовая гамма
-				snow: '#FFFFFF', // Снег, чистота
-				glacier: '#F0F8FF', // Ледниковый белый
-				river: '#20B2AA', // Реки и озёра (бирюзовый)  
-				lake: '#4682B4', // Байкал (стальной голубой)
-				taiga: '#1B4332', // Тайга (темно-зеленый)
-				forest: '#2D5A3D', // Лес (зеленый)
-				amber: '#DAA520', // Янтарь (золотисто-оранжевый)
-				sunset: '#FF6B35', // Сибирский закат (оранжевый)
-				aurora: {
-					blue: '#00BFFF', // Северное сияние синий
-					green: '#ADFF2F', // Северное сияние зеленый
-					purple: '#DA70D6', // Северное сияние фиолетовый
-					gold: '#FFD700' // Северное сияние золотой
-				},
-				// Сибирские звери
-				bear: '#654321', // Медведь (коричневый)
-				wolf: '#708090', // Волк (серый)
-				fox: '#CD853F', // Лиса (песочный)
+				// Современная палитра из дизайна
+				'chat-bg': '#87CEEB', // Основной голубой фон
+				'chat-light': '#B0E0E6', // Светлый голубой
+				'chat-blue': '#4682B4', // Средний синий
+				'chat-dark-blue': '#1E90FF', // Темный синий
+				'chat-red': '#DC143C', // Красный
+				'chat-coral': '#F08080', // Коралловый/розовый
+				'chat-pink': '#FFB6C1', // Светлый розовый
+				'chat-green': '#90EE90', // Зеленый
+				'chat-lime': '#9ACD32', // Лайм
+				'chat-yellow': '#FFFF99', // Желтый
+				'chat-orange': '#FFA500', // Оранжевый
+				'chat-white': '#FFFFFF', // Белый
+				'chat-cream': '#F5DEB3', // Кремовый
+				'chat-text': '#000000', // Черный текст
+				'chat-text-light': '#333333' // Серый текст
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
@@ -117,6 +114,14 @@ export default {
 				'icecrack': {
 					'0%': { transform: 'scaleX(0)' },
 					'100%': { transform: 'scaleX(1)' }
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0px)' },
+					'50%': { transform: 'translateY(-10px)' }
+				},
+				'pulseGlow': {
+					'0%, 100%': { opacity: '0.8', transform: 'scale(1)' },
+					'50%': { opacity: '1', transform: 'scale(1.05)' }
 				}
 			},
 			animation: {

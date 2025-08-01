@@ -66,7 +66,7 @@ interface SiberianSticker {
   animated?: boolean;
 }
 
-const SibCHAT: React.FC = () => {
+const RUSCHAT: React.FC = () => {
   const [activeTab, setActiveTab] = useState('chats');
   const [selectedChat, setSelectedChat] = useState<string | null>(null);
   const [newMessage, setNewMessage] = useState('');
@@ -80,18 +80,18 @@ const SibCHAT: React.FC = () => {
   const videoInputRef = useRef<HTMLInputElement>(null);
   const audioInputRef = useRef<HTMLInputElement>(null);
 
-  // Profile state with extended customization
+  // Profile state
   const [userProfile, setUserProfile] = useState<UserProfile>({
-    name: 'Мишаня Сибирякович',
-    username: 'siberian_cosmonaut',
-    bio: '🚀 Покоритель тайги и космоса\n🐻 Дружу с медведями\n❄️ Морозостойкий до -50°C',
-    avatar: '🧑‍🚀',
-    location: 'Байкальская тайга',
+    name: 'Евгений Андреевич',
+    username: 'evgeniy_a',
+    bio: '💼 Работаю в IT компании\n📱 Люблю современные технологии\n🎮 Геймер в свободное время',
+    avatar: '👤',
+    location: 'Москва',
     phone: '+7 (999) 123-45-67',
-    email: 'mishanya@taiga.ru',
+    email: 'evgeniy@company.ru',
     theme: 'default',
     language: 'ru',
-    wallpaper: 'aurora'
+    wallpaper: 'default'
   });
 
   // Extended states
@@ -102,37 +102,37 @@ const SibCHAT: React.FC = () => {
   const [showProfileEditor, setShowProfileEditor] = useState(false);
   const [showMediaPicker, setShowMediaPicker] = useState(false);
 
-  // Siberian stickers with mascots
-  const siberianStickers: SiberianSticker[] = [
-    { id: '1', name: 'Мишаня приветствует', emoji: '🐻👋', category: 'bears' },
-    { id: '2', name: 'Писец удивляется', emoji: '🦊😲', category: 'forest' },
-    { id: '3', name: 'Волк воет', emoji: '🐺🌙', category: 'forest' },
-    { id: '4', name: 'Морозец', emoji: '❄️🥶', category: 'weather' },
-    { id: '5', name: 'Ничё так', emoji: '👍🌲', category: 'sayings' },
-    { id: '6', name: 'Заяц в шоке', emoji: '🐰😱', category: 'forest' },
-    { id: '7', name: 'Олень гордый', emoji: '🦌✨', category: 'forest' },
-    { id: '8', name: 'Северное сияние', emoji: '🌌💚', category: 'weather' },
-    { id: '9', name: 'Медведь спит', emoji: '🐻😴', category: 'bears' },
-    { id: '10', name: 'Тайга зовет', emoji: '🌲📞', category: 'sayings' },
-    { id: '11', name: 'Рыбка поймалась', emoji: '🐟🎣', category: 'sayings' },
-    { id: '12', name: 'Баня готова', emoji: '🔥🏠', category: 'sayings' }
+  // Modern stickers
+  const modernStickers: SiberianSticker[] = [
+    { id: '1', name: 'Привет', emoji: '👋', category: 'sayings' },
+    { id: '2', name: 'Супер', emoji: '👍', category: 'sayings' },
+    { id: '3', name: 'Любовь', emoji: '❤️', category: 'sayings' },
+    { id: '4', name: 'Смех', emoji: '😂', category: 'sayings' },
+    { id: '5', name: 'Огонь', emoji: '🔥', category: 'sayings' },
+    { id: '6', name: 'Победа', emoji: '🎉', category: 'sayings' },
+    { id: '7', name: 'Работа', emoji: '💼', category: 'sayings' },
+    { id: '8', name: 'Кофе', emoji: '☕', category: 'sayings' },
+    { id: '9', name: 'Думаю', emoji: '🤔', category: 'sayings' },
+    { id: '10', name: 'Окей', emoji: '👌', category: 'sayings' },
+    { id: '11', name: 'Спасибо', emoji: '🙏', category: 'sayings' },
+    { id: '12', name: 'Солнце', emoji: '☀️', category: 'weather' }
   ];
 
   // Wallpaper options
   const wallpapers = [
-    { id: 'default', name: 'Классический', preview: '🌨️' },
-    { id: 'taiga', name: 'Тайга', preview: '🌲' },
-    { id: 'baikal', name: 'Байкал', preview: '🏔️' },
-    { id: 'aurora', name: 'Северное сияние', preview: '🌌' },
-    { id: 'winter', name: 'Зимний лес', preview: '❄️' },
-    { id: 'sunset', name: 'Сибирский закат', preview: '🌅' }
+    { id: 'default', name: 'Классический', preview: '🎨' },
+    { id: 'blue', name: 'Голубой', preview: '💙' },
+    { id: 'coral', name: 'Коралловый', preview: '🪸' },
+    { id: 'green', name: 'Зеленый', preview: '💚' },
+    { id: 'sunset', name: 'Закат', preview: '🌅' },
+    { id: 'minimal', name: 'Минимал', preview: '⚪' }
   ];
 
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
-      sender: 'Медведь Миша',
-      content: 'Братан, как дела в тайге? ❄️',
+      sender: 'Виктор Павлович',
+      content: 'Здравствуйте Виктор Павлович! Я прочитал ваше предложение о поступлении к нам на работу.',
       time: '14:32',
       type: 'text',
       reactions: [{ emoji: '👍', users: ['Я'] }]
@@ -140,21 +140,21 @@ const SibCHAT: React.FC = () => {
     {
       id: '2',
       sender: 'Я',
-      content: 'Ничё так, мороз крепчает! 🐻',
+      content: 'Отлично! Когда можем встретиться для обсуждения?',
       time: '14:35',
       type: 'text'
     },
     {
       id: '3',
-      sender: 'Медведь Миша',
+      sender: 'Виктор Павлович',
       content: '🎵 Голосовое сообщение',
       time: '14:38',
       type: 'voice'
     },
     {
       id: '4',
-      sender: 'Медведь Миша',
-      content: '🐻👋',
+      sender: 'Виктор Павлович',
+      content: '👍',
       time: '14:40',
       type: 'sticker'
     }
@@ -163,39 +163,39 @@ const SibCHAT: React.FC = () => {
   const [chats, setChats] = useState<Chat[]>([
     {
       id: '1',
-      name: 'Медведь Миша',
-      lastMessage: '🐻👋',
+      name: 'Виктор Павлович',
+      lastMessage: '👍',
       time: '14:40',
-      avatar: '🐻',
+      avatar: '👨‍💼',
       unread: 3,
       type: 'contact',
       isOnline: true
     },
     {
       id: '2',
-      name: 'Сибирские Волки',
-      lastMessage: 'Завтра на рыбалку?',
+      name: 'Команда разработки',
+      lastMessage: 'Встречаемся завтра в 10:00',
       time: '12:15',
-      avatar: '🐺',
+      avatar: '👥',
       unread: 5,
       type: 'group',
       members: 12,
-      description: 'Стойбище настоящих сибирских охотников'
+      description: 'Группа разработчиков нашей компании'
     },
     {
       id: '3',
-      name: 'Шаман Айыы',
-      lastMessage: 'Завтра снег будет ❄️',
+      name: 'Анна Сергеевна',
+      lastMessage: 'Документы готовы ✓',
       time: '10:42',
-      avatar: '🔮',
+      avatar: '👩‍💻',
       unread: 0,
       type: 'contact',
       isOnline: false
     },
     {
       id: '4',
-      name: 'Байкальские Новости',
-      lastMessage: 'Ледостав начался! 🧊',
+      name: 'IT Новости',
+      lastMessage: 'Новые технологии в разработке! 🚀',
       time: '09:15',
       avatar: '📺',
       unread: 1,
@@ -282,7 +282,7 @@ const SibCHAT: React.FC = () => {
       const newChat: Chat = {
         id: Date.now().toString(),
         name: newGroupName,
-        lastMessage: 'Стойбище создано',
+        lastMessage: 'Группа создана',
         time: new Date().toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' }),
         avatar: '👥',
         unread: 0,
@@ -358,61 +358,61 @@ const SibCHAT: React.FC = () => {
 
   const getWallpaperGradient = (wallpaper: string) => {
     switch (wallpaper) {
-      case 'taiga': return 'from-forest via-taiga to-forest';
-      case 'baikal': return 'from-lake via-river to-glacier';
-      case 'aurora': return 'from-aurora-purple via-aurora-green to-aurora-blue';
-      case 'winter': return 'from-glacier via-snow to-glacier';
-      case 'sunset': return 'from-sunset via-amber to-sunset';
-      default: return 'from-glacier via-snow to-river';
+      case 'blue': return 'from-chat-bg via-chat-light to-chat-blue';
+      case 'coral': return 'from-chat-coral via-chat-pink to-chat-red';
+      case 'green': return 'from-chat-green via-chat-lime to-chat-green';
+      case 'sunset': return 'from-chat-orange via-chat-yellow to-chat-coral';
+      case 'minimal': return 'from-chat-white via-chat-cream to-chat-light';
+      default: return 'from-chat-bg via-chat-light to-chat-blue';
     }
   };
 
   const ChatList = () => (
-    <div className="h-full flex flex-col bg-snow/95 backdrop-blur-sm">
-      <CardHeader className="pb-4 bg-gradient-to-r from-taiga to-forest text-snow">
+    <div className="h-full flex flex-col bg-chat-white/95 backdrop-blur-sm border-r border-chat-blue/20">
+      <CardHeader className="pb-4 bg-gradient-to-r from-chat-blue to-chat-dark-blue text-chat-white">
         <div className="flex items-center justify-between">
           <CardTitle className="flex items-center space-x-2" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-            <div className="text-2xl animate-aurora-glow">❄️</div>
+            <div className="text-2xl animate-pulse-glow">💬</div>
             <span>Чаты</span>
-            <div className="text-2xl animate-aurora-glow">🏔️</div>
+            <div className="text-2xl animate-pulse-glow">📱</div>
           </CardTitle>
           <div className="flex space-x-2">
             {/* Add Contact */}
             <Dialog>
               <DialogTrigger asChild>
-                <Button variant="outline" size="sm" className="text-snow border-snow/30 hover:bg-snow/20">
+                <Button variant="outline" size="sm" className="text-chat-white border-chat-white/30 hover:bg-chat-white/20">
                   <Icon name="UserPlus" size={16} />
                 </Button>
               </DialogTrigger>
-              <DialogContent className="bg-snow border-river/30">
+              <DialogContent className="bg-chat-white border-chat-blue/30">
                 <DialogHeader>
                   <DialogTitle style={{ fontFamily: 'Montserrat, sans-serif' }}>
-                    🐻 Добавить товарища
+                    👤 Добавить контакт
                   </DialogTitle>
                 </DialogHeader>
                 <div className="space-y-4">
                   <div>
-                    <Label htmlFor="contact-name">Имя в тайге</Label>
+                    <Label htmlFor="contact-name">Имя</Label>
                     <Input
                       id="contact-name"
                       value={newContactName}
                       onChange={(e) => setNewContactName(e.target.value)}
-                      placeholder="Медведь Федя"
-                      className="bg-glacier/70 border-river/30"
+                      placeholder="Иван Петров"
+                      className="bg-chat-light/70 border-chat-blue/30"
                     />
                   </div>
                   <div>
-                    <Label htmlFor="contact-username">Позывной</Label>
+                    <Label htmlFor="contact-username">Логин</Label>
                     <Input
                       id="contact-username"
                       value={newContactUsername}
                       onChange={(e) => setNewContactUsername(e.target.value)}
-                      placeholder="@siberian_bear"
-                      className="bg-glacier/70 border-river/30"
+                      placeholder="@ivan_petrov"
+                      className="bg-chat-light/70 border-chat-blue/30"
                     />
                   </div>
-                  <Button onClick={createNewContact} className="w-full bg-taiga hover:bg-forest text-snow">
-                    Добавить в стойбище
+                  <Button onClick={createNewContact} className="w-full bg-chat-blue hover:bg-chat-dark-blue text-chat-white">
+                    Добавить контакт
                   </Button>
                 </div>
               </DialogContent>
@@ -421,25 +421,25 @@ const SibCHAT: React.FC = () => {
             {/* Add Group */}
             <Dialog>
               <DialogTrigger asChild>
-                <Button variant="outline" size="sm" className="text-snow border-snow/30 hover:bg-snow/20">
+                <Button variant="outline" size="sm" className="text-chat-white border-chat-white/30 hover:bg-chat-white/20">
                   <Icon name="Users" size={16} />
                 </Button>
               </DialogTrigger>
-              <DialogContent className="bg-snow border-river/30">
+              <DialogContent className="bg-chat-white border-chat-blue/30">
                 <DialogHeader>
                   <DialogTitle style={{ fontFamily: 'Montserrat, sans-serif' }}>
-                    🏕️ Создать стойбище
+                    👥 Создать группу
                   </DialogTitle>
                 </DialogHeader>
                 <div className="space-y-4">
                   <div>
-                    <Label htmlFor="group-name">Название стойбища</Label>
+                    <Label htmlFor="group-name">Название группы</Label>
                     <Input
                       id="group-name"
                       value={newGroupName}
                       onChange={(e) => setNewGroupName(e.target.value)}
-                      placeholder="Охотники Севера"
-                      className="bg-glacier/70 border-river/30"
+                      placeholder="Рабочая группа"
+                      className="bg-chat-light/70 border-chat-blue/30"
                     />
                   </div>
                   <div>
@@ -448,12 +448,12 @@ const SibCHAT: React.FC = () => {
                       id="group-description"
                       value={newGroupDescription}
                       onChange={(e) => setNewGroupDescription(e.target.value)}
-                      placeholder="Группа для настоящих сибирских охотников"
-                      className="bg-glacier/70 border-river/30"
+                      placeholder="Группа для обсуждения рабочих вопросов"
+                      className="bg-chat-light/70 border-chat-blue/30"
                     />
                   </div>
-                  <Button onClick={createNewGroup} className="w-full bg-taiga hover:bg-forest text-snow">
-                    Создать стойбище
+                  <Button onClick={createNewGroup} className="w-full bg-chat-blue hover:bg-chat-dark-blue text-chat-white">
+                    Создать группу
                   </Button>
                 </div>
               </DialogContent>
@@ -469,8 +469,8 @@ const SibCHAT: React.FC = () => {
             onClick={() => handleChatSelect(chat.id)}
             className={`p-3 rounded-lg cursor-pointer transition-all animate-fade-in hover:shadow-lg ${
               selectedChat === chat.id 
-                ? 'bg-gradient-to-r from-taiga to-forest text-snow shadow-lg' 
-                : 'bg-glacier/50 hover:bg-glacier/70 border border-river/20'
+                ? 'bg-gradient-to-r from-chat-coral to-chat-red text-chat-white shadow-lg' 
+                : 'bg-chat-white/80 hover:bg-chat-light/70 border border-chat-blue/20'
             }`}
           >
             <div className="flex items-center justify-between">
@@ -478,15 +478,15 @@ const SibCHAT: React.FC = () => {
                 <div className="relative">
                   <div className="text-2xl">{chat.avatar}</div>
                   {chat.isOnline && (
-                    <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-aurora-green rounded-full border-2 border-snow"></div>
+                    <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-chat-green rounded-full border-2 border-chat-white animate-pulse"></div>
                   )}
                   {chat.type === 'group' && (
-                    <div className="absolute -top-1 -right-1 bg-amber text-taiga text-xs rounded-full w-4 h-4 flex items-center justify-center">
+                    <div className="absolute -top-1 -right-1 bg-chat-orange text-chat-white text-xs rounded-full w-4 h-4 flex items-center justify-center">
                       <Icon name="Users" size={8} />
                     </div>
                   )}
                   {chat.type === 'channel' && (
-                    <div className="absolute -top-1 -right-1 bg-river text-snow text-xs rounded-full w-4 h-4 flex items-center justify-center">
+                    <div className="absolute -top-1 -right-1 bg-chat-blue text-chat-white text-xs rounded-full w-4 h-4 flex items-center justify-center">
                       <Icon name="Radio" size={8} />
                     </div>
                   )}
@@ -509,7 +509,7 @@ const SibCHAT: React.FC = () => {
               <div className="text-right flex-shrink-0 ml-2">
                 <div className="text-xs opacity-60">{chat.time}</div>
                 {chat.unread > 0 && (
-                  <div className="bg-amber text-taiga text-xs rounded-full w-5 h-5 flex items-center justify-center mt-1 animate-bear-tracks">
+                  <div className="bg-chat-red text-chat-white text-xs rounded-full w-5 h-5 flex items-center justify-center mt-1 animate-pulse-glow">
                     {chat.unread}
                   </div>
                 )}
@@ -526,10 +526,10 @@ const SibCHAT: React.FC = () => {
     if (!selectedChat || !currentChat) {
       return (
         <div className={`flex items-center justify-center h-full bg-gradient-to-br ${getWallpaperGradient(selectedWallpaper)}`}>
-          <div className="text-center text-snow">
-            <div className="text-6xl mb-4 animate-aurora-glow">❄️💬🐻</div>
+          <div className="text-center text-chat-white">
+            <div className="text-6xl mb-4 animate-float">💬📱✨</div>
             <p className="text-xl font-semibold">Выберите чат для начала общения</p>
-            <p className="text-sm opacity-70 mt-2">Тайга ждет ваших сообщений</p>
+            <p className="text-sm opacity-70 mt-2">Современный мессенджер для эффективного общения</p>
           </div>
         </div>
       );
@@ -538,14 +538,14 @@ const SibCHAT: React.FC = () => {
     return (
       <div className={`h-full flex flex-col bg-gradient-to-br ${getWallpaperGradient(currentChat.wallpaper || selectedWallpaper)}`}>
         {/* Chat Header */}
-        <CardHeader className="bg-taiga/90 backdrop-blur text-snow border-b border-river/30">
+        <CardHeader className="bg-chat-coral/90 backdrop-blur text-chat-white border-b border-chat-red/30">
           <CardTitle className="flex items-center space-x-2" style={{ fontFamily: 'Montserrat, sans-serif' }}>
             {isMobile && (
               <Button 
                 variant="ghost" 
                 size="sm" 
                 onClick={handleBackToChats}
-                className="text-snow hover:bg-snow/20 mr-2"
+                className="text-chat-white hover:bg-chat-white/20 mr-2"
               >
                 <Icon name="ArrowLeft" size={20} />
               </Button>
@@ -555,12 +555,12 @@ const SibCHAT: React.FC = () => {
               <div className="flex items-center space-x-2">
                 <span>{currentChat.name}</span>
                 {currentChat.type === 'group' && (
-                  <Badge className="bg-amber text-taiga">
-                    Стойбище
+                  <Badge className="bg-chat-orange text-chat-white">
+                    Группа
                   </Badge>
                 )}
                 {currentChat.type === 'channel' && (
-                  <Badge className="bg-river text-snow">
+                  <Badge className="bg-chat-blue text-chat-white">
                     Канал
                   </Badge>
                 )}
@@ -568,22 +568,22 @@ const SibCHAT: React.FC = () => {
               <div className="text-sm opacity-70">
                 {currentChat.isOnline ? (
                   <span className="flex items-center space-x-1">
-                    <div className="w-2 h-2 bg-aurora-green rounded-full"></div>
-                    <span>В тайге</span>
+                    <div className="w-2 h-2 bg-chat-green rounded-full animate-pulse"></div>
+                    <span>В сети</span>
                   </span>
                 ) : (
-                  `${currentChat.type === 'group' ? `${currentChat.members} участников` : 'Был в тайге недавно'}`
+                  `${currentChat.type === 'group' ? `${currentChat.members} участников` : 'Был(а) недавно'}`
                 )}
               </div>
             </div>
             <div className="flex items-center space-x-2">
-              <Button variant="ghost" size="sm" className="text-snow hover:bg-snow/20">
+              <Button variant="ghost" size="sm" className="text-chat-white hover:bg-chat-white/20">
                 <Icon name="Phone" size={18} />
               </Button>
-              <Button variant="ghost" size="sm" className="text-snow hover:bg-snow/20">
+              <Button variant="ghost" size="sm" className="text-chat-white hover:bg-chat-white/20">
                 <Icon name="Video" size={18} />
               </Button>
-              <Button variant="ghost" size="sm" className="text-snow hover:bg-snow/20">
+              <Button variant="ghost" size="sm" className="text-chat-white hover:bg-chat-white/20">
                 <Icon name="MoreVertical" size={18} />
               </Button>
             </div>
@@ -595,14 +595,14 @@ const SibCHAT: React.FC = () => {
           {messages.map((message) => (
             <div
               key={message.id}
-              className={`flex ${message.sender === 'Я' ? 'justify-end' : 'justify-start'} animate-bear-tracks group`}
+              className={`flex ${message.sender === 'Я' ? 'justify-end' : 'justify-start'} animate-fade-in group`}
             >
               <div className="max-w-xs lg:max-w-md">
                 <div
                   className={`px-4 py-2 rounded-lg ${
                     message.sender === 'Я'
-                      ? 'bg-taiga text-snow ml-auto'
-                      : 'bg-snow/90 text-taiga backdrop-blur'
+                      ? 'bg-chat-blue text-chat-white ml-auto'
+                      : 'bg-chat-white/90 text-chat-text backdrop-blur border border-chat-blue/10'
                   } ${message.isDeleted ? 'opacity-50 italic' : ''} shadow-lg`}
                 >
                   {message.type === 'voice' ? (
@@ -644,7 +644,7 @@ const SibCHAT: React.FC = () => {
                         <button
                           key={index}
                           onClick={() => addReaction(message.id, reaction.emoji)}
-                          className="bg-glacier/50 px-2 py-1 rounded-full text-xs flex items-center space-x-1 hover:bg-glacier/70"
+                          className="bg-chat-light/50 px-2 py-1 rounded-full text-xs flex items-center space-x-1 hover:bg-chat-light/70 transition-colors"
                         >
                           <span>{reaction.emoji}</span>
                           <span>{reaction.users.length}</span>
@@ -659,20 +659,20 @@ const SibCHAT: React.FC = () => {
                       <div className="opacity-0 group-hover:opacity-100 flex space-x-1">
                         <button
                           onClick={() => addReaction(message.id, '👍')}
-                          className="text-xs hover:bg-glacier/50 p-1 rounded"
+                          className="text-xs hover:bg-chat-light/50 p-1 rounded"
                         >
                           👍
                         </button>
                         <button
                           onClick={() => addReaction(message.id, '❤️')}
-                          className="text-xs hover:bg-glacier/50 p-1 rounded"
+                          className="text-xs hover:bg-chat-light/50 p-1 rounded"
                         >
                           ❤️
                         </button>
                         {message.sender === 'Я' && (
                           <button
                             onClick={() => deleteMessage(message.id)}
-                            className="text-xs hover:bg-red-500/50 p-1 rounded"
+                            className="text-xs hover:bg-chat-red/50 p-1 rounded"
                           >
                             <Icon name="Trash2" size={12} />
                           </button>
@@ -688,16 +688,16 @@ const SibCHAT: React.FC = () => {
 
         {/* Sticker Panel */}
         {showStickers && (
-          <div className="bg-snow/90 backdrop-blur border-t border-river/30 p-4">
+          <div className="bg-chat-white/90 backdrop-blur border-t border-chat-blue/30 p-4">
             <div className="grid grid-cols-6 gap-2 max-h-40 overflow-y-auto">
-              {siberianStickers.map((sticker) => (
+              {modernStickers.map((sticker) => (
                 <button
                   key={sticker.id}
                   onClick={() => {
                     handleSendMessage('sticker', sticker.emoji);
                     setShowStickers(false);
                   }}
-                  className="text-2xl p-2 hover:bg-glacier/50 rounded-lg transition-all hover:scale-110"
+                  className="text-2xl p-2 hover:bg-chat-light/50 rounded-lg transition-all hover:scale-110"
                   title={sticker.name}
                 >
                   {sticker.emoji}
@@ -708,16 +708,16 @@ const SibCHAT: React.FC = () => {
         )}
 
         {/* Message Input */}
-        <div className="p-4 bg-snow/90 backdrop-blur border-t border-river/30">
+        <div className="p-4 bg-chat-white/90 backdrop-blur border-t border-chat-blue/30">
           <div className="flex items-center space-x-2">
             {/* Media Picker */}
             <Dialog open={showMediaPicker} onOpenChange={setShowMediaPicker}>
               <DialogTrigger asChild>
-                <Button variant="outline" size="sm" className="text-taiga border-river/30 hover:bg-river/10">
+                <Button variant="outline" size="sm" className="text-chat-blue border-chat-blue/30 hover:bg-chat-blue/10">
                   <Icon name="Paperclip" size={16} />
                 </Button>
               </DialogTrigger>
-              <DialogContent className="bg-snow">
+              <DialogContent className="bg-chat-white">
                 <DialogHeader>
                   <DialogTitle>📎 Отправить файл</DialogTitle>
                 </DialogHeader>
@@ -725,7 +725,7 @@ const SibCHAT: React.FC = () => {
                   <Button
                     onClick={() => handleFileUpload('image')}
                     variant="outline"
-                    className="flex flex-col items-center p-4 h-auto space-y-2 border-river/30"
+                    className="flex flex-col items-center p-4 h-auto space-y-2 border-chat-blue/30 hover:bg-chat-light/50"
                   >
                     <Icon name="Image" size={24} />
                     <span>Фото</span>
@@ -733,7 +733,7 @@ const SibCHAT: React.FC = () => {
                   <Button
                     onClick={() => handleFileUpload('video')}
                     variant="outline"
-                    className="flex flex-col items-center p-4 h-auto space-y-2 border-river/30"
+                    className="flex flex-col items-center p-4 h-auto space-y-2 border-chat-blue/30 hover:bg-chat-light/50"
                   >
                     <Icon name="Video" size={24} />
                     <span>Видео</span>
@@ -741,7 +741,7 @@ const SibCHAT: React.FC = () => {
                   <Button
                     onClick={() => handleFileUpload('audio')}
                     variant="outline"
-                    className="flex flex-col items-center p-4 h-auto space-y-2 border-river/30"
+                    className="flex flex-col items-center p-4 h-auto space-y-2 border-chat-blue/30 hover:bg-chat-light/50"
                   >
                     <Icon name="Music" size={24} />
                     <span>Аудио</span>
@@ -749,7 +749,7 @@ const SibCHAT: React.FC = () => {
                   <Button
                     onClick={() => handleFileUpload('document')}
                     variant="outline"
-                    className="flex flex-col items-center p-4 h-auto space-y-2 border-river/30"
+                    className="flex flex-col items-center p-4 h-auto space-y-2 border-chat-blue/30 hover:bg-chat-light/50"
                   >
                     <Icon name="FileText" size={24} />
                     <span>Документ</span>
@@ -792,15 +792,15 @@ const SibCHAT: React.FC = () => {
               value={newMessage}
               onChange={(e) => setNewMessage(e.target.value)}
               onKeyPress={handleKeyPress}
-              placeholder="Напиши что-то сибирское..."
-              className="flex-1 bg-glacier/70 border-river/30"
+              placeholder="Напишите сообщение..."
+              className="flex-1 bg-chat-light/70 border-chat-blue/30"
             />
             
             <Button 
               variant="outline" 
               size="sm" 
               onClick={() => setShowStickers(!showStickers)}
-              className={`border-river/30 ${showStickers ? 'bg-river/20 text-river' : 'text-taiga hover:bg-river/10'}`}
+              className={`border-chat-blue/30 ${showStickers ? 'bg-chat-blue/20 text-chat-blue' : 'text-chat-blue hover:bg-chat-blue/10'}`}
             >
               <Icon name="Smile" size={16} />
             </Button>
@@ -808,14 +808,14 @@ const SibCHAT: React.FC = () => {
             <Button 
               variant="outline" 
               size="sm" 
-              className="text-taiga border-river/30 hover:bg-river/10"
+              className="text-chat-blue border-chat-blue/30 hover:bg-chat-blue/10"
             >
               <Icon name="Mic" size={16} />
             </Button>
             
             <Button 
               onClick={() => handleSendMessage()}
-              className="bg-taiga hover:bg-forest text-snow"
+              className="bg-chat-blue hover:bg-chat-dark-blue text-chat-white"
             >
               <Icon name="Send" size={16} />
             </Button>
@@ -830,25 +830,33 @@ const SibCHAT: React.FC = () => {
       className={`min-h-screen bg-gradient-to-br ${getWallpaperGradient(userProfile.wallpaper || 'default')}`}
       style={{ fontFamily: 'Open Sans, sans-serif' }}
     >
-      {/* Header with Siberian design */}
-      <div className="bg-gradient-to-r from-taiga via-forest to-taiga text-snow p-4 shadow-lg border-b-4 border-amber">
+      {/* Header */}
+      <div className="bg-gradient-to-r from-chat-bg via-chat-blue to-chat-dark-blue text-chat-white p-4 shadow-lg border-b-4 border-chat-green">
         <div className="flex items-center justify-between max-w-7xl mx-auto">
           <div className="flex items-center space-x-3">
-            <div className="text-3xl animate-aurora-glow">❄️</div>
+            <div className="w-12 h-12 bg-chat-lime rounded-full flex items-center justify-center text-chat-white font-bold text-xl animate-float">
+              R
+            </div>
             <h1 className="text-3xl font-bold" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-              SibCHAT
+              RUSCHAT
             </h1>
-            <div className="text-3xl animate-aurora-glow">🐻</div>
-            <div className="hidden md:block text-sm opacity-75">
-              Сибирский мессенджер для настоящих таёжников
+            <div className="hidden md:block text-sm opacity-75 ml-4">
+              Ваш профиль
             </div>
           </div>
           <div className="flex items-center space-x-4">
-            <div className="text-amber animate-aurora-glow hidden md:block">
-              🌟 Северное сияние в сети
+            <div className="hidden md:block p-2 rounded-lg bg-chat-white/10">
+              <Icon name="Search" size={20} />
             </div>
-            <Avatar className="border-2 border-amber">
-              <AvatarFallback className="bg-amber text-taiga text-xl">{userProfile.avatar}</AvatarFallback>
+            <div className="hidden md:block">
+              <div className="flex flex-col space-y-1">
+                <div className="w-6 h-1 bg-chat-white rounded"></div>
+                <div className="w-6 h-1 bg-chat-white rounded"></div>
+                <div className="w-6 h-1 bg-chat-white rounded"></div>
+              </div>
+            </div>
+            <Avatar className="border-2 border-chat-green">
+              <AvatarFallback className="bg-chat-coral text-chat-white text-xl">{userProfile.avatar}</AvatarFallback>
             </Avatar>
           </div>
         </div>
@@ -856,28 +864,28 @@ const SibCHAT: React.FC = () => {
 
       <div className="max-w-7xl mx-auto p-4">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="grid w-full grid-cols-6 mb-6 bg-snow/90 backdrop-blur border border-river/30">
-            <TabsTrigger value="chats" className="flex items-center space-x-2 data-[state=active]:bg-taiga data-[state=active]:text-snow">
+          <TabsList className="grid w-full grid-cols-6 mb-6 bg-chat-white/90 backdrop-blur border border-chat-blue/30">
+            <TabsTrigger value="chats" className="flex items-center space-x-2 data-[state=active]:bg-chat-blue data-[state=active]:text-chat-white">
               <Icon name="MessageCircle" size={16} />
               <span className="hidden sm:inline">Чаты</span>
             </TabsTrigger>
-            <TabsTrigger value="channels" className="flex items-center space-x-2 data-[state=active]:bg-taiga data-[state=active]:text-snow">
+            <TabsTrigger value="channels" className="flex items-center space-x-2 data-[state=active]:bg-chat-blue data-[state=active]:text-chat-white">
               <Icon name="Radio" size={16} />
               <span className="hidden sm:inline">Каналы</span>
             </TabsTrigger>
-            <TabsTrigger value="profile" className="flex items-center space-x-2 data-[state=active]:bg-taiga data-[state=active]:text-snow">
+            <TabsTrigger value="profile" className="flex items-center space-x-2 data-[state=active]:bg-chat-blue data-[state=active]:text-chat-white">
               <Icon name="Home" size={16} />
-              <span className="hidden sm:inline">Избушка</span>
+              <span className="hidden sm:inline">Профиль</span>
             </TabsTrigger>
-            <TabsTrigger value="maps" className="flex items-center space-x-2 data-[state=active]:bg-taiga data-[state=active]:text-snow">
-              <Icon name="Map" size={16} />
-              <span className="hidden sm:inline">Тайга</span>
+            <TabsTrigger value="contacts" className="flex items-center space-x-2 data-[state=active]:bg-chat-blue data-[state=active]:text-chat-white">
+              <Icon name="Users" size={16} />
+              <span className="hidden sm:inline">Контакты</span>
             </TabsTrigger>
-            <TabsTrigger value="stickers" className="flex items-center space-x-2 data-[state=active]:bg-taiga data-[state=active]:text-snow">
+            <TabsTrigger value="stickers" className="flex items-center space-x-2 data-[state=active]:bg-chat-blue data-[state=active]:text-chat-white">
               <Icon name="Smile" size={16} />
               <span className="hidden sm:inline">Стикеры</span>
             </TabsTrigger>
-            <TabsTrigger value="settings" className="flex items-center space-x-2 data-[state=active]:bg-taiga data-[state=active]:text-snow">
+            <TabsTrigger value="settings" className="flex items-center space-x-2 data-[state=active]:bg-chat-blue data-[state=active]:text-chat-white">
               <Icon name="Settings" size={16} />
               <span className="hidden sm:inline">Настройки</span>
             </TabsTrigger>
@@ -885,14 +893,14 @@ const SibCHAT: React.FC = () => {
 
           {/* Chats Tab - Responsive Layout */}
           <TabsContent value="chats" className="space-y-4">
-            <Card className="bg-snow/95 backdrop-blur border-river/30 h-[600px] shadow-xl">
+            <Card className="bg-chat-white/95 backdrop-blur border-chat-blue/30 h-[600px] shadow-xl">
               {isMobile ? (
                 <div className="h-full">
                   {showChatList ? <ChatList /> : <ChatWindow />}
                 </div>
               ) : (
                 <div className="flex h-full">
-                  <div className="w-1/3 border-r border-river/30">
+                  <div className="w-1/3">
                     <ChatList />
                   </div>
                   <div className="flex-1">
@@ -903,68 +911,66 @@ const SibCHAT: React.FC = () => {
             </Card>
           </TabsContent>
 
-          {/* Other tabs would continue... */}
+          {/* Other tabs placeholder */}
           <TabsContent value="profile">
-            <div className="text-center text-taiga">
-              <div className="text-4xl mb-4">🏠</div>
-              <p>Профиль пользователя будет здесь</p>
-            </div>
+            <Card className="bg-chat-white/95 backdrop-blur border-chat-blue/30 shadow-xl p-8">
+              <div className="text-center">
+                <div className="text-6xl mb-4">👤</div>
+                <h2 className="text-2xl font-bold text-chat-text mb-2">{userProfile.name}</h2>
+                <p className="text-chat-text-light">@{userProfile.username}</p>
+                <div className="mt-4 p-4 bg-chat-light/50 rounded-lg">
+                  <p className="text-chat-text whitespace-pre-line">{userProfile.bio}</p>
+                </div>
+              </div>
+            </Card>
           </TabsContent>
 
           <TabsContent value="stickers">
-            <div className="text-center text-taiga">
-              <div className="text-4xl mb-4">😊</div>
-              <p>Сибирские стикеры будут здесь</p>
-            </div>
+            <Card className="bg-chat-white/95 backdrop-blur border-chat-blue/30 shadow-xl p-8">
+              <div className="text-center">
+                <div className="text-4xl mb-4">😊</div>
+                <p className="text-chat-text">Коллекция стикеров</p>
+                <div className="grid grid-cols-6 gap-4 mt-6">
+                  {modernStickers.map((sticker) => (
+                    <div key={sticker.id} className="text-4xl p-4 bg-chat-light/50 rounded-lg hover:bg-chat-light/70 cursor-pointer transition-all hover:scale-110">
+                      {sticker.emoji}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Card>
           </TabsContent>
 
           <TabsContent value="settings">
-            <div className="text-center text-taiga">
-              <div className="text-4xl mb-4">⚙️</div>
-              <p>Настройки будут здесь</p>
-            </div>
+            <Card className="bg-chat-white/95 backdrop-blur border-chat-blue/30 shadow-xl p-8">
+              <div className="text-center">
+                <div className="text-4xl mb-4">⚙️</div>
+                <p className="text-chat-text">Настройки приложения</p>
+              </div>
+            </Card>
           </TabsContent>
 
           <TabsContent value="channels">
-            <div className="text-center text-taiga">
-              <div className="text-4xl mb-4">📡</div>
-              <p>Каналы будут здесь</p>
-            </div>
+            <Card className="bg-chat-white/95 backdrop-blur border-chat-blue/30 shadow-xl p-8">
+              <div className="text-center">
+                <div className="text-4xl mb-4">📡</div>
+                <p className="text-chat-text">Каналы и подписки</p>
+              </div>
+            </Card>
           </TabsContent>
 
-          <TabsContent value="maps">
-            <div className="text-center text-taiga">
-              <div className="text-4xl mb-4">🗺️</div>
-              <p>Карта тайги будет здесь</p>
-            </div>
+          <TabsContent value="contacts">
+            <Card className="bg-chat-white/95 backdrop-blur border-chat-blue/30 shadow-xl p-8">
+              <div className="text-center">
+                <div className="text-4xl mb-4">👥</div>
+                <p className="text-chat-text">Список контактов</p>
+              </div>
+            </Card>
           </TabsContent>
         </Tabs>
-      </div>
-
-      {/* Floating Shaman bot notification with new styling */}
-      <div className="fixed bottom-4 right-4 animate-bounce">
-        <div className="bg-gradient-to-r from-amber to-sunset text-taiga p-4 rounded-lg shadow-xl border-2 border-aurora-gold">
-          <div className="flex items-center space-x-3">
-            <div className="text-3xl animate-aurora-glow">🔮</div>
-            <div>
-              <div className="font-semibold text-lg">Шаман Айыы</div>
-              <div className="text-sm">Завтра будет снег! ❄️</div>
-              <div className="text-xs opacity-70">Кликни для подробностей</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Snowfall animation */}
-      <div className="fixed inset-0 pointer-events-none overflow-hidden">
-        <div className="animate-snowfall text-white/20 text-xl absolute">❄️</div>
-        <div className="animate-snowfall text-white/10 text-sm absolute" style={{ left: '20%', animationDelay: '2s' }}>❄️</div>
-        <div className="animate-snowfall text-white/20 text-lg absolute" style={{ left: '40%', animationDelay: '4s' }}>❄️</div>
-        <div className="animate-snowfall text-white/10 text-sm absolute" style={{ left: '60%', animationDelay: '1s' }}>❄️</div>
-        <div className="animate-snowfall text-white/20 text-xl absolute" style={{ left: '80%', animationDelay: '3s' }}>❄️</div>
       </div>
     </div>
   );
 };
 
-export default SibCHAT;
+export default RUSCHAT;
